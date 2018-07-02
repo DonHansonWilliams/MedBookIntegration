@@ -1,0 +1,5 @@
+djangorestframework==3.4.0
+Django==1.8.5
+requests==2.10.0
+sqlany-django==1.13
+sqlanydb==1.0.10
