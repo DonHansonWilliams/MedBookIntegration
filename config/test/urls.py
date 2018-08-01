@@ -13,9 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url, include
 from django.contrib import admin
-from django.urls import path
+
+# from django.urls import path
+from schemes.views import fetchschemes
+from members.views import fetchmember, fetchcoverbenefits
+from claims.views import saveclaim
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^scheme/', fetchschemes),
+    url(r'^members/(?P<memno>[\w-]+)/$', fetchmember),
+    url(r'^memberbenefits/(?P<memno>[\w-]+)/$', fetchcoverbenefits),
+    url(r'^claims/save', saveclaim),
 ]
