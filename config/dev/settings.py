@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'schemes',
     'members',
     'claims',
+    'preauth',
 )
 
 MIDDLEWARE_CLASSES = (

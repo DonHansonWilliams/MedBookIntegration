@@ -10,7 +10,6 @@ from preauth.models import Preauth
 @api_view(http_method_names=['POST', ])
 @renderer_classes((JSONRenderer,))
 def savepreauth(request):
-    msg = None
     try:
         preauth = Preauth(
             member_no=request.data['member_no'],
@@ -19,6 +18,7 @@ def savepreauth(request):
             ben_code=request.data['ben_code'],
             prov_code=request.data['prov_code'],
             requested_amount=request.data['requested_amount'],
+            deducted_amount=request.data['requested_amount'],
             deduction_reason=request.data['deduction_reason'],
             approved_amount=request.data['approved_amount'],
             request_notes=request.data['request_notes'],
@@ -28,8 +28,8 @@ def savepreauth(request):
             uploaded=request.data['uploaded']
         )
         preauth.save()
-        msg = "Save preauth success"
+        msg = "Save of Preauth success"
     except IntegrityError:
-        msg = "Save preauth failed"
+        msg = "Save of Preauth failed"
 
     return Response(msg)

@@ -20,6 +20,7 @@ from django.contrib import admin
 from schemes.views import fetchschemes
 from members.views import fetchmember, fetchcoverbenefits
 from claims.views import saveclaim
+from preauth.views import savepreauth
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -27,4 +28,5 @@ urlpatterns = [
     url(r'^members/(?P<memno>[\w-]+)/$', fetchmember),
     url(r'^memberbenefits/(?P<memno>[\w-]+)/$', fetchcoverbenefits),
     url(r'^claims/save', saveclaim),
+    url(r'^preauth/save', savepreauth),
 ]
