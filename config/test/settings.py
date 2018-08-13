@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'config.test.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hais_medbook',
-        'USER': 'root',
-        'PASSWORD': 'mysqlroot',
+        'NAME': 'medbook',
+        'USER': 'haismedbook',
+        'PASSWORD': 'medbookhais',
         'HOST': 'localhost',
         'PORT': '3306',
     }
