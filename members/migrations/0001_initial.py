@@ -13,10 +13,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CoverBenefits',
             fields=[
-                ('benefits', models.CharField(max_length=50, serialize=False, primary_key=True)),
-                ('scheme_code', models.CharField(max_length=10, primary_key=True)),
-                ('family_no', models.CharField(max_length=50, primary_key=True)),
-                ('member_no', models.CharField(max_length=50, primary_key=True)),
+                ('rec_id', models.AutoField(default=1, max_length=100, serialize=False, primary_key=True)),
+                ('benefits', models.CharField(max_length=50)),
+                ('scheme_code', models.CharField(max_length=10)),
+                ('family_no', models.CharField(max_length=50)),
+                ('member_no', models.CharField(max_length=50)),
                 ('benefit_limit', models.DecimalField(default=0.0, max_digits=15, decimal_places=2)),
                 ('claims', models.DecimalField(default=0.0, null=True, max_digits=15, decimal_places=2)),
                 ('reserve_amount', models.DecimalField(default=0.0, max_digits=15, decimal_places=2)),

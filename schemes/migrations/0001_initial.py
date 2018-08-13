@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 ('scheme_name', models.CharField(max_length=200)),
             ],
             options={
-                'db_table': 'medbook_scheme',
+                'db_table': 'scheme',
             },
         ),
     ]
