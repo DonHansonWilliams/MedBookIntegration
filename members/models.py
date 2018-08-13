@@ -19,10 +19,11 @@ class Member(models.Model):
 
 
 class CoverBenefits(models.Model):
-    benefits = models.CharField(max_length=50, null=False, primary_key=True)
-    scheme_code = models.CharField(null=False, max_length=10, primary_key=True)
-    family_no = models.CharField(max_length=50, null=False, primary_key=True)
-    member_no = models.CharField(max_length=50, null=False, primary_key=True)
+    rec_id = models.AutoField(primary_key=True, max_length=100, default=1)
+    benefits = models.CharField(max_length=50, null=False)
+    scheme_code = models.CharField(null=False, max_length=10)
+    family_no = models.CharField(max_length=50, null=False)
+    member_no = models.CharField(max_length=50, null=False)
     benefit_limit = models.DecimalField(null=False, max_digits=15, decimal_places=2, default=0.00)
     claims = models.DecimalField(null=True, max_digits=15, decimal_places=2, default=0.00)
     reserve_amount = models.DecimalField(null=False, max_digits=15, decimal_places=2, default=0.00)
