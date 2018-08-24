@@ -20,4 +20,3 @@ class Claim(models.Model):
     class Meta:
         app_label = 'claims'
         db_table = "claims"
-        unique_together = (("invoice_no","service","prov_code"),)
