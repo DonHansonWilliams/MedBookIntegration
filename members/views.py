@@ -6,42 +6,58 @@ from rest_framework.response import Response
 from members.models import Member
 from members.models import CoverBenefits
 
-@api_view(http_method_names=['GET', ])
-@renderer_classes((JSONRenderer,))
-def fetchmember(request,memno):
-    member_number = memno.replace("-","/",4)
-    member_details = Member.objects.get(member_no=member_number)
-    details = {'scheme_code': member_details.scheme_code,
-            'member_no': member_details.member_no,
-            'member_name': member_details.member_names,
-            'member_status': member_details.member_status,
-            'start_date': member_details.start_date,
-            'end_date': member_details.end_date,
-            'mobile_no': member_details.mobile_no,
-            'anniv': member_details.anniv
-            }
-    return Response(details)
 
 @api_view(http_method_names=['GET', ])
 @renderer_classes((JSONRenderer,))
-def fetchcoverbenefits(request,memno):
+def fetchmember(request, memno):
+    member_number = memno.replace("-", "/", 4)
+    details = dict()
+    try:
+        member_details = MemberDetails.objects.get(member_no=member_number)
+        details = {
+            'scheme_code': member_details.scheme_code,
+            'family_no': member_details.family_no,
+            'member_no': member_details.member_no,
+            'member_name': member_details.member_name,
+            'mobile_no': member_details.mobile_no,
+            'member_status': member_details.member_status,
+            'start_date': member_details.start_date,
+            'end_date': member_details.end_date,
+            'anniv': member_details.anniv
+        }
+    except MemberDetails.DoesNotExist:
+
+        return Response(details)
+
+    return Response(details)
+
+
+@api_view(http_method_names=['GET', ])
+@renderer_classes((JSONRenderer,))
+def fetchcoverbenefits(request, memno):
     member_number = memno.replace("-", "/", 4)
     coverbenefit = CoverBenefits.objects.filter(member_no=member_number)
     member_benefit = []
-    for i in coverbenefit:
-        benefitdetails = {'benefits': i.benefits,
+    try:
+        memberBenefit = CoverBenefits.objects.filter(member_no=member_number)
+
+        for i in memberBenefit:
+            benefits = {
                 'scheme_code': i.scheme_code,
-                          'family_no': i.family_no,
-                          'member_no': i.member_no,
-                          'benefit_limit': i.benefit_limit,
-                          'claims': i.claims,
-                          'reserve_amount': i.reserve_amount,
-                          'expense': i.expense,
-                          'benefit_status': i.benefit_status,
-                          'balance': i.balance,
-                          'waiting_period': i.waiting_period,
-                          'ben_code': i.ben_code
-                          }
-        member_benefit.append(benefitdetails)
+                'family_no': i.family_no,
+                'member_no': i.member_no,
+                'benefit': i.benefit,
+                'benefit_code': i.benefit_code,
+                'benefit_limit': i.benefit_limit,
+                'waiting_period': i.waiting_period,
+                'anniv': i.anniv,
+                'reserves': i.reserves,
+                'expenditure': i.expenditure,
+                'balance': i.balance,
+
+            }
+            member_benefit.append(benefits)
+    except CoverBenefits.DoesNotExist:
+        return Response(member_benefit)
 
     return Response(member_benefit)

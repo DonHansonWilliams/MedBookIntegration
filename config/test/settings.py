@@ -79,13 +79,14 @@ WSGI_APPLICATION = 'config.test.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'medbook',
-        'USER': 'haismedbook',
-        'PASSWORD': 'medbookhais',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'sqlany_django',
+        'NAME': 'hais',
+        'USER': 'dba',
+        'PASSWORD': 'Hais_15',
+        'HOST': '192.168.0.7',
+        'PORT': '2638'
     }
+
 }
 
 # Internationalization

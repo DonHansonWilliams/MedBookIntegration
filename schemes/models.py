@@ -9,4 +9,4 @@ class Scheme(models.Model):
 
     class Meta:
         app_label = 'schemes'
-        db_table = "scheme"
+        db_table = "schemes"

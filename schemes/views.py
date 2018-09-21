@@ -7,6 +7,7 @@ from rest_framework.response import Response
 
 from schemes.models import Scheme
 
+
 @api_view(http_method_names=['GET', ])
 @renderer_classes((JSONRenderer,))
 def fetchschemes(request):

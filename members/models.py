@@ -2,37 +2,37 @@ from django.db import models
 
 
 # Create your models here.
-class Member(models.Model):
+class MemberDetails(models.Model):
+    scheme_code = models.CharField(null=False, max_length=20)
+    family_no = models.CharField(null=False, max_length=50, )
     member_no = models.CharField(primary_key=True, max_length=50, null=False)
-    family_no = models.CharField(max_length=50, null=False)
-    scheme_code = models.CharField(null=False, max_length=10)
-    member_names = models.CharField(null=False, max_length=200)
+    member_name = models.CharField(null=False, max_length=100)
     member_status = models.CharField(null=False, max_length=15)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=False)
-    mobile_no = models.CharField(null=True, max_length=20)
+    mobile_no = models.CharField(null=True, max_length=15)
     anniv = models.IntegerField(null=False)
 
     class Meta:
+        managed = False
         app_label = 'members'
-        db_table = "member_details"
+        db_table = 'memberDetails'
 
 
 class CoverBenefits(models.Model):
-    rec_id = models.AutoField(primary_key=True, max_length=100, default=1)
-    benefits = models.CharField(max_length=50, null=False)
-    scheme_code = models.CharField(null=False, max_length=10)
-    family_no = models.CharField(max_length=50, null=False)
-    member_no = models.CharField(max_length=50, null=False)
-    benefit_limit = models.DecimalField(null=False, max_digits=15, decimal_places=2, default=0.00)
-    claims = models.DecimalField(null=True, max_digits=15, decimal_places=2, default=0.00)
-    reserve_amount = models.DecimalField(null=False, max_digits=15, decimal_places=2, default=0.00)
-    expense = models.DecimalField(null=False, max_digits=15, decimal_places=2, default=0.00)
-    benefit_status = models.CharField(null=False, max_length=20)
-    balance = models.DecimalField(null=False, max_digits=15, decimal_places=2, default=0.00)
-    waiting_period = models.IntegerField(null=True)
-    ben_code = models.IntegerField(null=True)
+    scheme_code = models.CharField(null=False, max_length=20)
+    family_no = models.CharField(null=False, max_length=20)
+    member_no = models.CharField(null=False, max_length=20, primary_key=True)
+    benefit = models.CharField(null=False, max_length=50, primary_key=True)
+    benefit_code = models.IntegerField(null=True)
+    benefit_limit = models.DecimalField(null=False, default=0, decimal_places=2, max_digits=15)
+    waiting_period = models.IntegerField(null=True, default=0)
+    anniv = models.IntegerField(null=False, primary_key=True)
+    reserves = models.DecimalField(null=True, default=0, max_digits=15, decimal_places=2)
+    expenditure = models.DecimalField(null=True, default=0, max_digits=15, decimal_places=2)
+    balance = models.DecimalField(null=True, default=0, max_digits=15, decimal_places=2)
 
     class Meta:
-        app_label = 'members'
-        db_table = "cover_benefits"
+        managed = False
+        app_label = 'memberBenefits'
+        db_table = 'coverBenefits'
