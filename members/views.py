@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
-from members.models import Member
+from members.models import MemberDetails
 from members.models import CoverBenefits
 
 
