@@ -5,4 +5,3 @@ sqlany-django==1.13
 sqlanydb==1.0.10
 waitress==1.1.0
 crypto==1.4.1
-MySQL-python==1.2.5

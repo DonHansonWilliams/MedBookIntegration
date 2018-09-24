@@ -78,12 +78,13 @@ WSGI_APPLICATION = 'config.dev.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hais_medbook',
-        'USER': 'root',
-        'PASSWORD': 'mysqlroot',
+        'ENGINE': 'sqlany_django',
+        'NAME': 'hais',
+        'USER': 'dba',
+        'PASSWORD': 'Hais_15',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '2638',
+        'OPTIONS': {'eng': 'MadisonDev'},
     }
 }
 

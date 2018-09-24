@@ -78,16 +78,15 @@ WSGI_APPLICATION = 'config.test.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+     'default': {
         'ENGINE': 'sqlany_django',
         'NAME': 'hais',
         'USER': 'dba',
         'PASSWORD': 'Hais_15',
-        'HOST': '192.168.0.7',
+        'HOST': 'haisdb.madison.co.ke',
         'PORT': '49152',
         'OPTIONS': {'eng': 'madison_test'},
     }
-
 }
 
 # Internationalization

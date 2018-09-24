@@ -22,11 +22,11 @@ from members.views import fetchmember, fetchcoverbenefits
 from claims.views import saveclaim
 from preauth.views import savepreauth
 
-urlpatterns = {
+urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^scheme/', fetchschemes),
-    url(r'^members/(?P<memno>[\w-]+)/$', fetchmember),
-    url(r'^memberbenefits/(?P<memno>[\w-]+)/$', fetchcoverbenefits),
+    url(r'^member_details/(?P<memno>[\w-]+)/$', fetchmember),
+    url(r'^cover_benefits/(?P<memno>[\w-]+)/$', fetchcoverbenefits),
     url(r'^claims/save', saveclaim),
     url(r'^preauth/save', savepreauth),
-}
+]
