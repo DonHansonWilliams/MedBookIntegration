@@ -84,7 +84,8 @@ DATABASES = {
         'USER': 'dba',
         'PASSWORD': 'Hais_15',
         'HOST': '192.168.0.7',
-        'PORT': '2638'
+        'PORT': '49152',
+        'OPTIONS': {'eng': 'madison_test'},
     }
 
 }

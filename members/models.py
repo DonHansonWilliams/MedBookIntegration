@@ -34,5 +34,5 @@ class CoverBenefits(models.Model):
 
     class Meta:
         managed = False
-        app_label = 'memberBenefits'
+        app_label = 'members'
         db_table = 'coverBenefits'
