@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Claim(models.Model):
-    clm_ex_id = models.AutoField(primary_key=True, null=False, max_length=100)
+    clm_ex_id = models.AutoField(primary_key=True, null=False, max_length=100, auto_created=True)
     member_no = models.CharField(null=False, max_length=20)
     invoice_no = models.CharField(null=False, max_length=100)
     service = models.CharField(null=True, max_length=200)

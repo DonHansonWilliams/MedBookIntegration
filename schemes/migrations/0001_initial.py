@@ -13,11 +13,12 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Scheme',
             fields=[
-                ('scheme_code', models.CharField(max_length=100, serialize=False, primary_key=True)),
+                ('scheme_code', models.CharField(primary_key=True, max_length=100, serialize=False)),
                 ('scheme_name', models.CharField(max_length=200)),
             ],
             options={
-                'db_table': 'scheme',
+                'db_table': 'schemes',
+                'managed': False,
             },
         ),
     ]

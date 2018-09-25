@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Preauth',
             fields=[
-                ('preauth_id', models.AutoField(max_length=100, serialize=False, primary_key=True)),
+                ('preauth_id', models.AutoField(primary_key=True, max_length=100, serialize=False)),
                 ('member_no', models.CharField(max_length=20)),
                 ('date_requested', models.DateField()),
                 ('diagnosis', models.CharField(max_length=100)),
@@ -25,9 +25,9 @@ class Migration(migrations.Migration):
                 ('approved_amount', models.DecimalField(max_digits=15, decimal_places=2)),
                 ('request_notes', models.CharField(max_length=200, null=True)),
                 ('requested_by', models.CharField(max_length=100)),
-                ('received', models.IntegerField(default=0, null=True)),
-                ('approved', models.IntegerField(default=0, null=True)),
-                ('uploaded', models.IntegerField(default=0, null=True)),
+                ('received', models.IntegerField(null=True, default=0)),
+                ('approved', models.IntegerField(null=True, default=0)),
+                ('uploaded', models.IntegerField(null=True, default=0)),
             ],
             options={
                 'db_table': 'preauth',

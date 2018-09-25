@@ -8,5 +8,6 @@ class Scheme(models.Model):
     scheme_name = models.CharField(null=False, max_length=200)
 
     class Meta:
+        managed = False
         app_label = 'schemes'
         db_table = "schemes"
