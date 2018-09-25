@@ -38,7 +38,7 @@ def _checkduplicate(claim):
         exists = Claim.objects.filter(
             prov_code=claim.data['provCode'],
             invoice_no=claim.data['invoiceNo'],
-            service=claim.data['service'],
+            service=claim.data['service']
         ).count()
         if exists > 0:
             resp = True
