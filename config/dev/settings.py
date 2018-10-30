@@ -84,7 +84,7 @@ DATABASES = {
         'PASSWORD': 'Hais_15',
         'HOST': 'localhost',
         'PORT': '2638',
-        'OPTIONS': {'eng': 'MadisonDev'},
+        'OPTIONS': {'eng': 'developer'},
     }
 }
 

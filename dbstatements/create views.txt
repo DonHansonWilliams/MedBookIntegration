@@ -1,0 +1,16 @@
+Create View mb_claim_status as select a.invoice_no,
+		a.smart_bill_id as bill_id,
+		(select service from service where service.code = a.service) service,
+		a.member_no,
+		a.anniv,
+		(select provider from provider where provider.code = a.provider) hospital,
+		a.provider as provider_code,
+		a.vet_status as vet_status,
+		a.date_entered as date_entered,
+		a.invoiced_amount as invoiced_amount,
+		a.deduction_amount as deduction_amount,
+		(select deduction_reason.deduct_reason from deduction_reason where deduction_reason.code = a.deduction_reason) as deduction_reason,
+		a.amount_payable as amount_payable,
+		a.id
+From bills a
+Where a.smart_bill_id like '%-MB' AND a.smart_bill_id is not null;

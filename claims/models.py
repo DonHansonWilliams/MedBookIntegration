@@ -21,3 +21,49 @@ class Claim(models.Model):
     class Meta:
         app_label = 'claims'
         db_table = "claims"
+
+
+class MedbookClaims(models.Model):
+    id = models.IntegerField(null=False, primary_key=True)
+    smart_provider = models.CharField(null=True, max_length=200)
+    smart_trans_date = models.DateField(null=True)
+    smart_service = models.CharField(null=True, max_length=3)
+    smart_benefit = models.CharField(null=True, max_length=3)
+    smart_bill_amount = models.DecimalField(null=True, max_digits=15, decimal_places=2)
+    uploaded = models.IntegerField(null=True, default=0)
+    error = models.IntegerField(null=True, default=0)
+    vetted = models.IntegerField(null=True, default=0)
+    anniv = models.IntegerField(null=True)
+    smart_member_no = models.CharField(null=True, max_length=20)
+    smart_inv_no = models.CharField(null=True, max_length=100)
+    pre_auth_no = models.IntegerField(null=True)
+    fund = models.IntegerField(null=True)
+    family_no = models.CharField(null=True, max_length=100)
+    corp_id = models.CharField(null=True, max_length=100)
+    smart_bill_id = models.CharField(null=True, max_length=50)
+    claim_source = models.CharField(null=True, max_length=20)
+
+    class Meta:
+        app_label = 'claims'
+        db_table = "smart_bills"
+
+
+class ClaimStatus(models.Model):
+    id = models.AutoField(null=False, primary_key=True)
+    invoice_no = models.CharField(null=False, max_length=50)
+    bill_id = models.CharField(null=False, max_length=100)
+    service = models.CharField(null=False, max_length=100)
+    member_no = models.CharField(null=False, max_length=50)
+    anniv = models.IntegerField(null=True)
+    hospital = models.CharField(null=False, max_length=200)
+    provider_code = models.IntegerField(null=False, default=0)
+    vet_status = models.IntegerField(null=True, default=0)
+    date_entered = models.DateField(null=True)
+    invoiced_amount = models.DecimalField(null=True, max_digits=15, decimal_places=2)
+    deduction_amount = models.DecimalField(null=True, max_digits=15, decimal_places=2)
+    deduction_reason = models.CharField(null=True, max_length=100)
+    amount_payable = models.DecimalField(null=True, max_digits=15, decimal_places=2)
+
+    class Meta:
+        app_label = 'claims'
+        db_table = "mb_claim_status"
