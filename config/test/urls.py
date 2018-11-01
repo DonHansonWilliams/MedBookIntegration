@@ -31,4 +31,3 @@ urlpatterns = [
     url(r'^pre_auth/save', savepreauth),
     url(r'^claims/fetch_claim_status', fetchclaimstatus),
 ]
-
