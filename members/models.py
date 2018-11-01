@@ -16,7 +16,7 @@ class MemberDetails(models.Model):
     class Meta:
         managed = False
         app_label = 'members'
-        db_table = 'memberDetails'
+        db_table = 'mb_member_details'
 
 
 class CoverBenefits(models.Model):
@@ -35,4 +35,4 @@ class CoverBenefits(models.Model):
     class Meta:
         managed = False
         app_label = 'members'
-        db_table = 'coverBenefits'
+        db_table = 'mb_cover_benefits'

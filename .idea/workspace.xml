@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0f348932-8cf1-49fb-b79b-d5b288fcbd2c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/claims/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/claims/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/claims/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/claims/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/test/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/test/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbstatements/create views.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbstatements/create views.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/members/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/members/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preauth/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/preauth/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preauth/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/preauth/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,24 +97,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="65" />
-          <entry key="txt" value="1" />
+          <entry key="py" value="76" />
+          <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="65" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1479" />
+          <entry key="py" value="1487" />
+          <entry key="txt" value="219" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1479" />
+          <entry key="PLAIN_TEXT" value="219" />
+          <entry key="Python" value="1487" />
         </counts>
       </usages-collector>
     </session>
@@ -123,22 +124,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/claims/views.py">
+        <entry file="file://$PROJECT_DIR$/dbstatements/create views.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="104" column="36" lean-forward="true" selection-start-line="104" selection-start-column="36" selection-end-line="104" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/claims/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="64" column="84" lean-forward="true" selection-start-line="51" selection-start-column="3" selection-end-line="64" selection-end-column="84" />
+            <state relative-caret-position="238">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
@@ -146,8 +135,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/dev/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="33" lean-forward="true" selection-start-line="24" selection-end-line="33" />
+            <state relative-caret-position="336">
+              <caret line="24" selection-start-line="24" selection-end-line="33" />
               <folding>
                 <element signature="e#630#671#0" expanded="true" />
               </folding>
@@ -158,8 +147,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/test/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="462">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="e#630#671#0" expanded="true" />
               </folding>
@@ -167,11 +156,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/test/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="1090">
               <caret line="87" column="40" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/manage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/claims/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -199,25 +206,26 @@
         <option value="$PROJECT_DIR$/schemes/views.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/config/test/settings.py" />
-        <option value="$PROJECT_DIR$/schemes/models.py" />
-        <option value="$PROJECT_DIR$/members/models.py" />
-        <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/members/views.py" />
         <option value="$PROJECT_DIR$/config/dev/settings.py" />
-        <option value="$PROJECT_DIR$/preauth/models.py" />
         <option value="$PROJECT_DIR$/preauth/views.py" />
         <option value="$PROJECT_DIR$/config/dev/urls.py" />
-        <option value="$PROJECT_DIR$/claims/models.py" />
         <option value="$PROJECT_DIR$/claims/views.py" />
+        <option value="$PROJECT_DIR$/schemes/models.py" />
+        <option value="$PROJECT_DIR$/members/models.py" />
+        <option value="$PROJECT_DIR$/preauth/models.py" />
+        <option value="$PROJECT_DIR$/claims/models.py" />
+        <option value="$PROJECT_DIR$/dbstatements/create views.txt" />
         <option value="$PROJECT_DIR$/config/test/urls.py" />
+        <option value="$PROJECT_DIR$/manage.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="236" />
-    <option name="y" value="34" />
+    <option name="x" value="29" />
+    <option name="y" value="21" />
     <option name="width" value="1371" />
-    <option name="height" value="808" />
+    <option name="height" value="542" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -231,28 +239,6 @@
             <path>
               <item name="MedBookIntegration" type="b2602c69:ProjectViewProjectNode" />
               <item name="MedBookIntegration" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MedBookIntegration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MedBookIntegration" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MedBookIntegration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MedBookIntegration" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="dev" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MedBookIntegration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MedBookIntegration" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MedBookIntegration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MedBookIntegration" type="462c0819:PsiDirectoryNode" />
-              <item name="members" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -309,7 +295,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.35488126" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.35488126" />
       <window_info anchor="bottom" id="Python Console" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -392,38 +378,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/prod/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/members/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="5" column="63" selection-start-line="5" selection-start-column="63" selection-end-line="5" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/schemes/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -444,13 +402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preauth/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="63" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="15" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/members/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -458,13 +409,6 @@
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/claims/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="64" column="84" lean-forward="true" selection-start-line="51" selection-start-column="3" selection-end-line="64" selection-end-column="84" />
         </state>
       </provider>
     </entry>
@@ -478,10 +422,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/members/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preauth/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schemes/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/claims/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbstatements/create views.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/dev/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="33" lean-forward="true" selection-start-line="24" selection-end-line="33" />
+        <state relative-caret-position="336">
+          <caret line="24" selection-start-line="24" selection-end-line="33" />
           <folding>
             <element signature="e#630#671#0" expanded="true" />
           </folding>
@@ -490,8 +476,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/test/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="462">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#630#671#0" expanded="true" />
           </folding>
@@ -500,8 +486,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/test/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="1090">
           <caret line="87" column="40" selection-start-line="87" selection-start-column="28" selection-end-line="87" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>

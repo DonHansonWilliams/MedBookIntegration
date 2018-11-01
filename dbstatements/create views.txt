@@ -1,3 +1,45 @@
+//mb_schemes
+create view mb_schemes as
+select corp_id as scheme_code, corporate as scheme_name from corporate;
+
+//mb_member_details
+create view mb_member_details as
+select pa.mobile_no as mobile_no,
+mi.corp_id as scheme_code,
+mi.family_no as family_no,
+mi.member_no as member_no,
+mi.surname ||' ' || mi.first_name || ' '|| mi.other_names as member_name,
+mi.cancelled as member_status,
+max(ma.start_date) as start_date,
+max(ma.end_date) as end_date,
+max(ma.anniv) as anniv
+from principal_applicant pa right join member_info mi on pa.family_no = mi.family_no right join member_anniversary ma on mi.member_no = ma.member_no
+Group By mobile_no, scheme_code, family_no, member_no, member_name, member_status;
+
+//mb_cover_benefits
+Create view mb_cover_benefits as
+Select
+    max(be.benefit) as benefit,
+    mb.benefit as benefit_code,
+    mi.corp_id as scheme_code,
+    mi.family_no as family_no,
+	mi.member_no as member_no,
+    mb.limit as benefit_limit,
+    mb.waiting_period as waiting_period,
+    max(mb.anniv) as anniv,
+    mb.reserve_amt as reserves,
+mb.expense as expenditure,
+mb.balance as balance
+From member_info mi join member_benefits mb on mi.member_no = mb.member_no join benefit be on be.code = mb.benefit
+WHERE mb.anniv = (select max(mb.anniv) from member_benefits mb where mb.member_no = mi.member_no)
+Group By scheme_code, family_no, member_no, benefit_code, benefit_limit, waiting_period, reserves, expenditure, balance;
+
+//claims
+#Add Auto Increment Id of smart_bills
+Alter Table smart_bills
+Add claim_source varchar(20);
+
+//mb_claim_status
 Create View mb_claim_status as select a.invoice_no,
 		a.smart_bill_id as bill_id,
 		(select service from service where service.code = a.service) service,
@@ -14,3 +56,21 @@ Create View mb_claim_status as select a.invoice_no,
 		a.id
 From bills a
 Where a.smart_bill_id like '%-MB' AND a.smart_bill_id is not null;
+
+
+//mb_pre_auth
+#Add Auto Increment Id of pre_auth_no
+CREATE TABLE mb_pre_auth (
+        pre_auth_no numeric(15,0) NOT NULL AUTO INCREMENT,
+        member_no varchar(20) ,
+        date_requested date ,
+        diagnosis varchar(255) ,
+        ben_code numeric(5,0) ,
+        prov_code varchar(15) ,
+        requested_amt numeric(15,2) ,
+        deducted_amt numeric(15,2) ,
+        deduction_reason varchar(255) ,
+        approved_amount numeric(15,2) ,
+        request_notes varchar(255) ,
+        requested_by varchar(50)
+    );

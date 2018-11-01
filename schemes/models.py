@@ -10,4 +10,4 @@ class Scheme(models.Model):
     class Meta:
         managed = False
         app_label = 'schemes'
-        db_table = "schemes"
+        db_table = "mb_schemes"
