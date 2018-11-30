@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 class Preauth(models.Model):
     pre_auth_no = models.AutoField(primary_key=True, null=False, max_length=100)
