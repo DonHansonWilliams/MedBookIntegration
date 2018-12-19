@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from django.shortcuts import render
 
 # Create your views here.
-from claims.models import Claim, MedbookClaims, ClaimStatus
+from claims.models import Claim, MedbookClaims, ClaimStatus, Reimbursements
 
 
 @api_view(http_method_names=['POST', ])
@@ -107,3 +107,60 @@ def fetchclaimstatus(request):
         return Response(status_details)
 
     return Response(status_details)
+
+
+@api_view(http_method_names=['GET', ])
+@renderer_classes((JSONRenderer,))
+def fetchreimb(request, memno):
+    member_number = memno.replace("-", "/", 4)
+    details = []
+    try:
+        memberReimb = Reimbursements.objects.filter(member_no=member_number)
+
+        for i in memberReimb:
+            reimb = {
+                'invoice_no': i.invoice_no,
+                'service': i.service,
+                'member_no': i.member_no,
+                'anniv': i.anniv,
+                'hospital': i.hospital,
+                'provider_code': i.provider_code,
+                'date_entered': i.date_entered,
+                'invoiced_amount': i.invoiced_amount,
+                'deduction_amount': i.deduction_amount,
+                'amount_payable': i.amount_payable
+            }
+            details.append(reimb)
+    except Reimbursements.DoesNotExist:
+
+        return Response(details)
+
+    return Response(details)
+
+
+@api_view(http_method_names=['GET', ])
+@renderer_classes((JSONRenderer,))
+def fetchreimbs(request):
+    details = []
+    try:
+        fetchreimbs = Reimbursements.objects.all()
+
+        for i in fetchreimbs:
+            reimb = {
+                'invoice_no': i.invoice_no,
+                'service': i.service,
+                'member_no': i.member_no,
+                'anniv': i.anniv,
+                'hospital': i.hospital,
+                'provider_code': i.provider_code,
+                'date_entered': i.date_entered,
+                'invoiced_amount': i.invoiced_amount,
+                'deduction_amount': i.deduction_amount,
+                'amount_payable': i.amount_payable
+            }
+            details.append(reimb)
+    except Reimbursements.DoesNotExist:
+
+        return Response(details)
+
+    return Response(details)

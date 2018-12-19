@@ -1,6 +1,6 @@
 //mb_schemes
 create view mb_schemes as
-select corp_id as scheme_code, corporate as scheme_name from corporate;
+select corp_id, abbreviation as scheme_code, corporate as scheme_name from corporate where medbook = 1;
 
 //mb_member_details
 create view mb_member_details as
@@ -13,7 +13,7 @@ mi.cancelled as member_status,
 max(ma.start_date) as start_date,
 max(ma.end_date) as end_date,
 max(ma.anniv) as anniv
-from principal_applicant pa right join member_info mi on pa.family_no = mi.family_no right join member_anniversary ma on mi.member_no = ma.member_no
+from principal_applicant pa right join member_info mi on pa.family_no = mi.family_no right join member_anniversary ma on mi.member_no = ma.member_no and mi.medbook = 1
 Group By mobile_no, scheme_code, family_no, member_no, member_name, member_status;
 
 //mb_cover_benefits
@@ -31,7 +31,7 @@ Select
 mb.expense as expenditure,
 mb.balance as balance
 From member_info mi join member_benefits mb on mi.member_no = mb.member_no join benefit be on be.code = mb.benefit
-WHERE mb.anniv = (select max(mb.anniv) from member_benefits mb where mb.member_no = mi.member_no)
+WHERE mb.anniv = (select max(mb.anniv) from member_benefits mb where mb.member_no = mi.member_no) and mi.medbook = 1
 Group By scheme_code, family_no, member_no, benefit_code, benefit_limit, waiting_period, reserves, expenditure, balance;
 
 //claims
@@ -40,7 +40,8 @@ Alter Table smart_bills
 Add claim_source varchar(20);
 
 //mb_claim_status
-Create View mb_claim_status as select a.invoice_no,
+Create View mb_claim_status as
+select a.invoice_no,
 		a.smart_bill_id as bill_id,
 		(select service from service where service.code = a.service) service,
 		a.member_no,
@@ -56,6 +57,25 @@ Create View mb_claim_status as select a.invoice_no,
 		a.id
 From bills a
 Where a.smart_bill_id like '%-MB' AND a.smart_bill_id is not null;
+
+//mb_reimbursements
+Create View mb_reimbursements as
+select bi.invoice_no,
+		(select service from service where service.code = bi.service) service,
+		bi.member_no,
+		bi.anniv,
+		(select provider from provider where provider.code = bi.provider) hospital,
+		bi.provider as provider_code,
+		bi.vet_status as vet_status,
+		bi.date_entered as date_entered,
+		bi.invoiced_amount as invoiced_amount,
+		bi.deduction_amount as deduction_amount,
+		(select deduction_reason.deduct_reason from deduction_reason where deduction_reason.code = bi.deduction_reason) as deduction_reason,
+		bi.amount_payable as amount_payable,
+		bi.id
+From bills bi, member_info mi
+Where bi.member_no =mi.member_no
+and bi.vet_status = 1 and mi.medbook = 1 and bi.refund > 0;
 
 
 //mb_pre_auth
@@ -74,3 +94,7 @@ CREATE TABLE mb_pre_auth (
         request_notes varchar(255) ,
         requested_by varchar(50)
     );
+
+//ALTER
+alter table corporate add medbook numeric(1);
+alter table member_info add medbook numeric(1);

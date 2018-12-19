@@ -67,3 +67,22 @@ class ClaimStatus(models.Model):
     class Meta:
         app_label = 'claims'
         db_table = "mb_claim_status"
+
+
+class Reimbursements(models.Model):
+    id = models.AutoField(null=False, primary_key=True)
+    invoice_no = models.CharField(null=False, max_length=50)
+    service = models.CharField(null=False, max_length=100)
+    member_no = models.CharField(null=False, max_length=50)
+    anniv = models.IntegerField(null=True)
+    hospital = models.CharField(null=False, max_length=200)
+    provider_code = models.IntegerField(null=False, default=0)
+    date_entered = models.DateField(null=True)
+    invoiced_amount = models.DecimalField(null=True, max_digits=15, decimal_places=2)
+    deduction_amount = models.DecimalField(null=True, max_digits=15, decimal_places=2)
+    deduction_reason = models.CharField(null=True, max_length=100)
+    amount_payable = models.DecimalField(null=True, max_digits=15, decimal_places=2)
+
+    class Meta:
+        app_label = 'claims'
+        db_table = "mb_reimbursements"
