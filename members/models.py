@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 class MemberDetails(models.Model):
     scheme_code = models.CharField(null=False, max_length=20)
@@ -17,7 +16,6 @@ class MemberDetails(models.Model):
         managed = False
         app_label = 'members'
         db_table = 'mb_member_details'
-
 
 class CoverBenefits(models.Model):
     scheme_code = models.CharField(null=False, max_length=20)

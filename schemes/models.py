@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
 
 class Scheme(models.Model):
@@ -12,3 +11,4 @@ class Scheme(models.Model):
         managed = False
         app_label = 'schemes'
         db_table = "mb_schemes"
+        
