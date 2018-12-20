@@ -10,11 +10,13 @@ mi.family_no as family_no,
 mi.member_no as member_no,
 mi.surname ||' ' || mi.first_name || ' '|| mi.other_names as member_name,
 mi.cancelled as member_status,
+mi.gender as gender,
+mi.dob as dob,
 max(ma.start_date) as start_date,
 max(ma.end_date) as end_date,
 max(ma.anniv) as anniv
 from principal_applicant pa right join member_info mi on pa.family_no = mi.family_no right join member_anniversary ma on mi.member_no = ma.member_no and mi.medbook = 1
-Group By mobile_no, scheme_code, family_no, member_no, member_name, member_status;
+Group By mobile_no, scheme_code, family_no, member_no, member_name, gender, dob, member_status;
 
 //mb_cover_benefits
 Create view mb_cover_benefits as

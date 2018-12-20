@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class MemberDetails(models.Model):
     scheme_code = models.CharField(null=False, max_length=20)
@@ -7,6 +8,8 @@ class MemberDetails(models.Model):
     member_no = models.CharField(primary_key=True, max_length=50, null=False)
     member_name = models.CharField(null=False, max_length=100)
     member_status = models.CharField(null=False, max_length=15)
+    gender = models.IntegerField(null=False)
+    dob = models.DateField(null=False)
     start_date = models.DateField(null=False)
     end_date = models.DateField(null=False)
     mobile_no = models.CharField(null=True, max_length=15)
@@ -16,6 +19,7 @@ class MemberDetails(models.Model):
         managed = False
         app_label = 'members'
         db_table = 'mb_member_details'
+
 
 class CoverBenefits(models.Model):
     scheme_code = models.CharField(null=False, max_length=20)

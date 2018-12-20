@@ -18,7 +18,7 @@ from django.contrib import admin
 
 # from django.urls import path
 from schemes.views import fetchschemes
-from members.views import fetchmember, fetchcoverbenefits
+from members.views import fetchmember, fetchcoverbenefits, postmembers
 from claims.views import storeClaim, fetchclaimstatus, fetchreimb, fetchreimbs
 from preauth.views import savepreauth
 
@@ -32,4 +32,5 @@ urlpatterns = [
     url(r'^claims/fetch_claim_status', fetchclaimstatus),
     url(r'^reimbursement/(?P<memno>[\w-]+)/$', fetchreimb),
     url(r'^reimbursements/', fetchreimbs),
+    url(r'^post_members/', postmembers),
 ]
