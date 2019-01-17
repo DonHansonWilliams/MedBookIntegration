@@ -1,6 +1,33 @@
 //mb_schemes
 create view mb_schemes as
-select corp_id, abbreviation as scheme_code, corporate as scheme_name from corporate where medbook = 1;
+select co.corp_id,
+		co.abbreviation as scheme_code,
+		corporate as scheme_name,
+		max(ca.anniv) as anniv,
+		max(ca.start_date) as start_date,
+		max(ca.end_date) as end_date,
+		max(ca.renewal_date) as renewal_date
+from corporate co, corp_anniversary ca
+where co.corp_id = ca.corp_id and co.medbook = 1
+group by co.corp_id, scheme_code, corporate;
+
+
+//mb_scheme_groups
+create view mb_scheme_groups as
+select cg.category as category,
+		(select be.benefit from benefit be where be.code = cg.benefit) as benefit,
+		cg.benefit as ben_code,
+		cg.limit as ben_limit,
+		max(cg.anniv) as anniv,
+		(select bs.sharing from benefit_sharing bs where bs.code = cg.sharing) as ben_share,
+		cg.corp_id as corp_id,
+		cg.idx as idx
+from corp_groups cg, corporate co
+where cg.sub_limit_of is null and cg.anniv = (select max(ca.anniv) from corp_anniversary ca where ca.corp_id = co.corp_id) and
+		cg.corp_id = co.corp_id and co.medbook = 1
+Group By category, benefit, ben_code, ben_limit, corp_id, ben_share, idx
+order by category;
+
 
 //mb_member_details
 create view mb_member_details as
@@ -97,6 +124,11 @@ CREATE TABLE mb_pre_auth (
         requested_by varchar(50)
     );
 
+//mb_users
+create view mb_users as
+select user_name, user_pass from users where medbook = 1;
+
 //ALTER
 alter table corporate add medbook numeric(1);
 alter table member_info add medbook numeric(1);
+alter table users add medBook numeric(1);

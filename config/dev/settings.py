@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'members',
     'claims',
     'preauth',
+    'users',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -84,7 +85,7 @@ DATABASES = {
         'PASSWORD': 'Hais_15',
         'HOST': 'localhost',
         'PORT': '2638',
-        'OPTIONS': {'eng': 'developer'},
+        'OPTIONS': {'eng': 'Developer'},
     }
 }
 

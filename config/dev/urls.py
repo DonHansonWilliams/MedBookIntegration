@@ -17,10 +17,11 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 # from django.urls import path
-from schemes.views import fetchschemes
-from members.views import fetchmember, fetchcoverbenefits
-from claims.views import saveclaim, storeClaim, fetchclaimstatus
+from schemes.views import fetchschemes, fetch_scheme_groups, schemeGroups
+from members.views import fetchmember, fetchcoverbenefits, postmembers
+from claims.views import storeClaim, fetchclaimstatus, fetchreimb, fetchreimbs
 from preauth.views import savepreauth
+from users.views import fetch_users
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -30,4 +31,10 @@ urlpatterns = [
     url(r'^claims/save', storeClaim),
     url(r'^pre_auth/save', savepreauth),
     url(r'^claims/fetch_claim_status', fetchclaimstatus),
+    url(r'^reimbursement/(?P<memno>[\w-]+)/$', fetchreimb),
+    url(r'^reimbursements/', fetchreimbs),
+    url(r'^post_members/', postmembers),
+    url(r'^users/', fetch_users),
+    url(r'^scheme_groups', fetch_scheme_groups),
+    url(r'^scheme_group/(?P<scheme_id>[\w-]+)/$', schemeGroups),
 ]
