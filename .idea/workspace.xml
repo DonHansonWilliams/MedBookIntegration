@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9826bafe-9852-4fd5-88dc-6a8ec990ff43" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbstatements/create views.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dbstatements/create views.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schemes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/schemes/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,25 +14,25 @@
     <session id="-56537992">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="47" />
-          <entry key="txt" value="9" />
+          <entry key="py" value="49" />
+          <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="47" />
+          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="Python" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="py" value="1311" />
-          <entry key="txt" value="65" />
+          <entry key="txt" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="65" />
+          <entry key="PLAIN_TEXT" value="69" />
           <entry key="Python" value="1311" />
         </counts>
       </usages-collector>
@@ -60,22 +53,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/schemes/views.py">
+        <entry file="file://$PROJECT_DIR$/claims/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="410">
+              <caret line="43" column="61" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="43" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/dev/urls.py">
+        <entry file="file://$PROJECT_DIR$/claims/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="38" column="23" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="23" />
+            <state relative-caret-position="336">
+              <caret line="32" column="24" lean-forward="true" selection-start-line="10" selection-end-line="32" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -97,14 +87,14 @@
         <option value="$PROJECT_DIR$/config/dev/settings.py" />
         <option value="$PROJECT_DIR$/users/models.py" />
         <option value="$PROJECT_DIR$/users/views.py" />
-        <option value="$PROJECT_DIR$/dbstatements/create views.txt" />
         <option value="$PROJECT_DIR$/schemes/models.py" />
         <option value="$PROJECT_DIR$/schemes/views.py" />
         <option value="$PROJECT_DIR$/config/dev/urls.py" />
+        <option value="$PROJECT_DIR$/dbstatements/create views.txt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="800" />
     <option name="y" value="30" />
     <option name="width" value="800" />
@@ -127,11 +117,6 @@
               <item name="MedBookIntegration" type="b2602c69:ProjectViewProjectNode" />
               <item name="MedBookIntegration" type="462c0819:PsiDirectoryNode" />
               <item name="claims" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MedBookIntegration" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MedBookIntegration" type="462c0819:PsiDirectoryNode" />
-              <item name="dbstatements" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MedBookIntegration" type="b2602c69:ProjectViewProjectNode" />
@@ -184,7 +169,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.46143618" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.46143618" />
       <window_info anchor="bottom" id="Python Console" order="8" weight="0.32978722" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32978722" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -287,20 +272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/claims/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="80" column="85" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dbstatements/create views.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/schemes/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -308,17 +279,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/claims/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="137" column="28" lean-forward="true" selection-start-line="111" selection-end-line="137" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/schemes/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+        <state relative-caret-position="637">
+          <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="71" selection-end-column="33" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -327,8 +291,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/dev/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
+        <state relative-caret-position="301">
           <caret line="38" column="23" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dbstatements/create views.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/claims/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="43" column="61" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="43" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/claims/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="32" column="24" lean-forward="true" selection-start-line="10" selection-end-line="32" selection-end-column="24" />
         </state>
       </provider>
     </entry>

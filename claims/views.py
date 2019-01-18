@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from django.shortcuts import render
 
 # Create your views here.
-from claims.models import Claim, MedbookClaims, ClaimStatus, Reimbursements
+from claims.models import Claim, MedbookClaims, ClaimStatus, Reimbursements, ClaimsExperience
 
 
 @api_view(http_method_names=['POST', ])
@@ -160,6 +160,78 @@ def fetchreimbs(request):
             }
             details.append(reimb)
     except Reimbursements.DoesNotExist:
+
+        return Response(details)
+
+    return Response(details)
+
+
+@api_view(http_method_names=['GET', ])
+@renderer_classes((JSONRenderer,))
+def claims_exp(request):
+    details = []
+    try:
+        claims_exp = ClaimsExperience.objects.all()
+
+        for i in claims_exp:
+            experience = {
+                'corporate': i.corporate,
+                'principal_name': i.principal_name,
+                'member_name': i.member_name,
+                'family_no': i.family_no,
+                'member_no': i.member_no,
+                'relation': i.relation,
+                'claim_no': i.claim_no,
+                'anniv': i.anniv,
+                'provider': i.provider,
+                'invoice_no': i.invoice_no,
+                'service': i.service,
+                'invoice_date': i.invoice_date,
+                'benefit': i.date_received,
+                'date_received': i.service,
+                'date_entered': i.date_entered,
+                'invoiced_amount': i.invoiced_amount,
+                'amount_payable': i.amount_payable,
+
+            }
+            details.append(experience)
+    except ClaimsExperience.DoesNotExist:
+
+        return Response(details)
+
+    return Response(details)
+
+
+@api_view(http_method_names=['GET', ])
+@renderer_classes((JSONRenderer,))
+def fetch_fam_exp(request, family, year):
+    family_number = family.replace("-", "/")
+    details = []
+    try:
+        famExperience = ClaimsExperience.objects.filter(family_no=family_number, anniv=year)
+
+        for i in famExperience:
+            experience = {
+                'corporate': i.corporate,
+                'principal_name': i.principal_name,
+                'member_name': i.member_name,
+                'family_no': i.family_no,
+                'member_no': i.member_no,
+                'relation': i.relation,
+                'claim_no': i.claim_no,
+                'anniv': i.anniv,
+                'provider': i.provider,
+                'invoice_no': i.invoice_no,
+                'service': i.service,
+                'invoice_date': i.invoice_date,
+                'benefit': i.date_received,
+                'date_received': i.service,
+                'date_entered': i.date_entered,
+                'invoiced_amount': i.invoiced_amount,
+                'amount_payable': i.amount_payable,
+            }
+            details.append(experience)
+    except ClaimsExperience.DoesNotExist:
 
         return Response(details)
 

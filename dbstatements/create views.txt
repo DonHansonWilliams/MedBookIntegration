@@ -45,6 +45,7 @@ max(ma.anniv) as anniv
 from principal_applicant pa right join member_info mi on pa.family_no = mi.family_no right join member_anniversary ma on mi.member_no = ma.member_no and mi.medbook = 1
 Group By mobile_no, scheme_code, family_no, member_no, member_name, gender, dob, member_status;
 
+
 //mb_cover_benefits
 Create view mb_cover_benefits as
 Select
@@ -63,10 +64,12 @@ From member_info mi join member_benefits mb on mi.member_no = mb.member_no join 
 WHERE mb.anniv = (select max(mb.anniv) from member_benefits mb where mb.member_no = mi.member_no) and mi.medbook = 1
 Group By scheme_code, family_no, member_no, benefit_code, benefit_limit, waiting_period, reserves, expenditure, balance;
 
+
 //claims
 #Add Auto Increment Id of smart_bills
 Alter Table smart_bills
 Add claim_source varchar(20);
+
 
 //mb_claim_status
 Create View mb_claim_status as
@@ -86,6 +89,33 @@ select a.invoice_no,
 		a.id
 From bills a
 Where a.smart_bill_id like '%-MB' AND a.smart_bill_id is not null;
+
+
+//mb_claims_experience
+Create View mb_claims_experience as
+select (select corporate from corporate where corp_id = pa.corp_id) as corporate,
+		pa.surname ||' '||pa.first_name||' '|| pa.other_names as principal_name,
+		(select mi.surname ||' '|| mi.first_name||' '|| mi.other_names from member_info mi where mi.member_no = bi.member_no) as member_name,
+		mi.family_no as family_no,
+		mi.member_no as member_no,
+		(select fa.relation from family_relation fa where fa.code = mi.relation_to_principal) as relation,
+		bi.claim_no as claim_no,
+		bi.id as idx,
+		bi.anniv as anniv,
+		(select pr.provider from provider pr where pr.code = bi.provider) as provider,
+		bi.invoice_no as invoice_no,
+		(select se.service from service se where se.code = bi.service) as service,
+		bi.invoice_date as invoice_date,
+		(select benefit from benefit where benefit.code = bi.claim_nature) as benefit,
+		bi.date_received as date_received,
+		bi.date_entered as date_entered,
+		sum(bi.invoiced_amount) as invoiced_amount,
+		sum(bi.amount_payable) as amount_payable
+    from bills bi, principal_applicant pa, member_info mi
+where bi.member_no = mi.member_no and pa.family_no = mi.family_no
+and bi.vet_status = 1 and mi.medbook = 1
+group by principal_name, member_name, member_no, family_no, claim_no, idx, anniv, invoice_no, date_received, date_entered, service, relation, benefit, provider, corporate, invoice_date;
+
 
 //mb_reimbursements
 Create View mb_reimbursements as
