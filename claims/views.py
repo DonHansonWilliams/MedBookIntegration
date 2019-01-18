@@ -236,3 +236,39 @@ def fetch_fam_exp(request, family, year):
         return Response(details)
 
     return Response(details)
+
+
+@api_view(http_method_names=['GET', ])
+@renderer_classes((JSONRenderer,))
+def fetch_member_statement(request, member, year):
+    member_number = member.replace("-", "/")
+    details = []
+    try:
+        memberStatemement = ClaimsExperience.objects.filter(member_no=member_number, anniv=year)
+
+        for i in memberStatemement:
+            experience = {
+                'corporate': i.corporate,
+                'principal_name': i.principal_name,
+                'member_name': i.member_name,
+                'family_no': i.family_no,
+                'member_no': i.member_no,
+                'relation': i.relation,
+                'claim_no': i.claim_no,
+                'anniv': i.anniv,
+                'provider': i.provider,
+                'invoice_no': i.invoice_no,
+                'service': i.service,
+                'invoice_date': i.invoice_date,
+                'benefit': i.date_received,
+                'date_received': i.service,
+                'date_entered': i.date_entered,
+                'invoiced_amount': i.invoiced_amount,
+                'amount_payable': i.amount_payable,
+            }
+            details.append(experience)
+    except ClaimsExperience.DoesNotExist:
+
+        return Response(details)
+
+    return Response(details)

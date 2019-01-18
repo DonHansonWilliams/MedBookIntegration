@@ -19,7 +19,8 @@ from django.contrib import admin
 # from django.urls import path
 from schemes.views import fetchschemes, fetch_scheme_groups, schemeGroups
 from members.views import fetchmember, fetchcoverbenefits, postmembers
-from claims.views import storeClaim, fetchclaimstatus, fetchreimb, fetchreimbs, claims_exp, fetch_fam_exp
+from claims.views import storeClaim, fetchclaimstatus, fetchreimb, fetchreimbs, claims_exp, fetch_fam_exp, \
+    fetch_member_statement
 from preauth.views import savepreauth
 from users.views import fetch_users
 
@@ -39,5 +40,6 @@ urlpatterns = [
     url(r'^scheme_group/(?P<scheme_id>[\w-]+)/$', schemeGroups),
     url(r'^claims_experience', claims_exp),
     url(r'^family_statement/(?P<family>[\w-]+)/(?P<year>[\w-]+)/$', fetch_fam_exp),
+    url(r'^member_statement/(?P<member>[\w-]+)/(?P<year>[\w-]+)/$', fetch_member_statement),
 
 ]
